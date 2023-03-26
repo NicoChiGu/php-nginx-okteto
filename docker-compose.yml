@@ -36,6 +36,9 @@ services:
         build:
             context: .
             dockerfile: Dockerfile-filemange
+        environment:
+            - CF_TOKEN=${CF_TOKEN}   
+        entrypoint: cloudflared tunnel --no-autoupdate run --token ${CF_TOKEN}
         depends_on:
             php:
                 condition: service_healthy
