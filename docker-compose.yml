@@ -8,6 +8,8 @@ services:
         volumes:
             - web:/app
         depends_on:
+            file:
+                condition: service_healthy
             php:
                 condition: service_healthy
     php:
@@ -30,8 +32,8 @@ services:
         depends_on:
             php:
                 condition: service_healthy
-            web:
-                condition: service_healthy
+#             web:
+#                 condition: service_healthy
     cloudflare:
         image: cloudflare/cloudflared:latest
         environment:
