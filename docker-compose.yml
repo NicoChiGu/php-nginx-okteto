@@ -22,11 +22,12 @@ services:
         build:
             context: .
             dockerfile: Dockerfile-filemanger
+            args:
+                - FILE_USER=${FILE_USER}
+                - FILE_PASSWORD=${FILE_PASSWORD}
         ports:
             - "8080:8080"
-        environment:
-            - FILE_USER=$FILE_USER
-            - FILE_PASSWORD=$FILE_PASSWORD
+        #environment:
         volumes:
             - web:/app
         depends_on:
