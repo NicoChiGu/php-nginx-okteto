@@ -6,4 +6,4 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 RUN ls /opt/filemanger
 
 RUN wget -O /opt/filemanger/linux-amd64-filebrowser.tar.gz https://github.com/filebrowser/filebrowser/releases/latest/download/linux-amd64-filebrowser.tar.gz && tar -zxvf /opt/filemanger/linux-amd64-filebrowser.tar.gz && chmod 775 /opt/filemanger/filebrowser
-CMD /opt/filemanger/filebrowser -a 0.0.0.0 -p 8080
+CMD cd /opt/filemanger && /opt/filemanger/filebrowser -a 0.0.0.0 -p 8080
