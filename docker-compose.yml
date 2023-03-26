@@ -1,0 +1,52 @@
+services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile-nginx
+        ports:
+            - "80:80"
+        volumes:
+            - web:/app
+        depends_on:
+            php:
+                condition: service_healthy
+    php:
+        build:
+            context: .
+            dockerfile: Dockerfile-php
+        ports:
+            - "9000"
+        volumes:
+            - web:/app
+    file:
+        build:
+            context: .
+            dockerfile: Dockerfile-filemanger
+        ports:
+            - "8080:8080"
+        volumes:
+            - web:/app
+            - filemanger:/opt/filemanger
+        depends_on:
+            php:
+                condition: service_healthy
+            web:
+                condition: service_healthy
+    cloudflare:
+        build:
+            context: .
+            dockerfile: Dockerfile-filemange
+        depends_on:
+            php:
+                condition: service_healthy
+            web:
+                condition: service_healthy
+            file:
+                condition: service_healthy
+volumes:
+    web:
+        driver_opts:
+            size: "4.5Gi"
+    filemange:
+        driver_opts:
+            size: "0.5Gi"        
