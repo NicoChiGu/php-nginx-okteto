@@ -50,6 +50,6 @@ volumes:
     web:
         driver_opts:
             size: "4.5Gi"
-    filemange:
+    filemanger:
         driver_opts:
             size: "0.5Gi"        
