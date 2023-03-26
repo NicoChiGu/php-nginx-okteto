@@ -33,9 +33,7 @@ services:
             web:
                 condition: service_healthy
     cloudflare:
-        build:
-            context: .
-            dockerfile: Dockerfile-filemange
+        image: cloudflare/cloudflared:latest
         environment:
             - CF_TOKEN=${CF_TOKEN}   
         entrypoint: cloudflared tunnel --no-autoupdate run --token ${CF_TOKEN}
