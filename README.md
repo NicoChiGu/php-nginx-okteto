@@ -12,6 +12,6 @@ If you want your container to run continuously. you need to visit the endpoint u
 |:---------|:---------|:---------|
 | FILE_USER | admin | FILEBROWSER USERNAME |
 | FILE_PASSWORD | admin | FILEBROWSER USER PASSWROD |
-| CF_TOKEN | #longcode# | [Register/Login](https://one.dash.cloudflare.com) CloudflareTunel |
+| CF_TOKEN | #longcode# | [Register/Login](https://one.dash.cloudflare.com) CloudflareTunnel |
 | PHP_VERSION | 8.1-debian-11 | PHP VERSION /See on [DockerHub](https://hub.docker.com/r/bitnami/php-fpm/tags) |
 | DATA_SIZE | #5Gi# | Free User Max 5Gi |
