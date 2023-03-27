@@ -52,4 +52,4 @@ services:
 volumes:
     web:
         driver_opts:
-            size: "5Gi"     
+            size: ${DATA_SIZE}     
