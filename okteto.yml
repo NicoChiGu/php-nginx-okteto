@@ -1,0 +1,10 @@
+icon: https://www.nginx.com/wp-content/uploads/2020/05/NGINX-product-icon.svg
+environment:
+   FILE_USER: ${FILE_USER:admin}
+   FILE_PASSWORD: ${FILE_PASSWORD:admin}
+   CF_TOKEN: ${CF_TOKEN:NULL}
+   PHP_VERSION: ${PHP_VERSION:8.1-debian-11}
+   DATA_SIZE: ${DATA_SIZE:5Gi}
+   WEB_NGINX_SERVERNAME: ${WEB_NGINX_SERVERNAME:web-$NAMESPACE.cloud.okteto.net}
+   
+   
