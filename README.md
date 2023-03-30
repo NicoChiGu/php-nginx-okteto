@@ -1,5 +1,5 @@
 # Simple Run PHP+NGINX On [OKTETO](https://okteto.com) <a href="https://okteto.com"><img src="https://avatars.githubusercontent.com/u/39767798?s=50&v=1"></a>
-This **PHP+NGINX+FileBrowser** Run on **OKTETO** repo. You can fork this repo to change some code.
+This **PHP+NGINX+FileBrowser** Run on **OKTETO** repo. You can fork this repo to change some code. **[This Repo Use PHP-FPM-8.1 / Nginx 1.22]**
 
 FREE USER can not use **customDomain**. so i add **cloudflare Tunnel** in this repo.  //you can modify other proxy service providers here. such as Ngrok
 
