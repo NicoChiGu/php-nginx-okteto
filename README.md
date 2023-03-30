@@ -15,6 +15,7 @@ If you want your container to run continuously. you need to visit the endpoint u
 | CF_TOKEN | `##longcode` | [Register/Login](https://one.dash.cloudflare.com) CloudflareTunnel |
 | PHP_VERSION | `8.1-debian-11` | PHP VERSION /See on [DockerHub](https://hub.docker.com/r/bitnami/php-fpm/tags) |
 | DATA_SIZE | `5Gi` | Free User Max 5Gi |
+| WEB_NGINX_SERVERNAME | `DOMAIN` | Proxy DOMAIN |
 
 ### If you change nginx setting. see repo [./nginx/*.conf](./nginx)
 ### Okteto directly connect containers using container names
