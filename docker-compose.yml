@@ -4,7 +4,7 @@ services:
             context: .
             dockerfile: Dockerfile-nginx
             args:
-                - WEB_NGINX_SERVERNAME:${WEB_NGINX_SERVERNAME}
+                - WEB_NGINX_SERVERNAME=${WEB_NGINX_SERVERNAME}
         ports:
             - "80:80"
         volumes:
