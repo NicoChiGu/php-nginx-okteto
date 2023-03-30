@@ -16,8 +16,8 @@ services:
 #         build:
 #             context: .
 #             dockerfile: Dockerfile-php
-        image: bitnami/php-fpm:8.1-debian-11
-        #image: bitnami/php-fpm:${PHP_VERSION}
+        #image: bitnami/php-fpm:8.1-debian-11
+        image: bitnami/php-fpm:${PHP_VERSION}
         ports:
             - "9000"
         volumes:
