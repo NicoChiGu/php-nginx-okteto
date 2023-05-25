@@ -13,11 +13,7 @@ services:
             php:
                 condition: service_healthy
     php:
-#         build:
-#             context: .
-#             dockerfile: Dockerfile-php
-#        image: bitnami/php-fpm:8.1-debian-11
-        image: bitnami/php-fpm:7.4-debian-11
+        image: bitnami/php-fpm:${PHP_VERSION}
         ports:
             - "9000"
         volumes:
