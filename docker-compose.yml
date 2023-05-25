@@ -13,7 +13,7 @@ services:
             php:
                 condition: service_healthy
     php:
-        image: bitnami/php-fpm:$PHP_VERSION
+        image: bitnami/php-fpm:7.4-debian-11
         ports:
             - "9000"
         volumes:
