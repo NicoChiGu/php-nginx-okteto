@@ -4,7 +4,8 @@ ARG FILE_USER
 ARG FILE_PASSWORD
 ENV FILE_USER=$FILE_USER
 ENV FILE_PASSWORD=$FILE_PASSWORD
-RUN echo $FILE_PASSWORD && echo $FILE_PASSWORD
+RUN export FILE_USER=$FILE_USER && export FILE_PASSWORD=$FILE_PASSWORD
+RUN echo $FILE_USER && echo $FILE_PASSWORD
 RUN mkdir -p /mnt/filemanger
 RUN apt update && apt install -y curl wget zip unzip ca-certificates software-properties-common gnupg gnupg2 apt-transport-https tzdata
 #RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone \
