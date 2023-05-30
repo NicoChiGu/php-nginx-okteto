@@ -5,6 +5,7 @@ services:
             dockerfile: Dockerfile-nginx
             args:
                 - WEB_NGINX_SERVERNAME=${WEB_NGINX_SERVERNAME}
+        scale: 2
         ports:
             - "80:80"
         volumes:
@@ -14,6 +15,7 @@ services:
                 condition: service_healthy
     php:
         image: "bitnami/php-fpm:7.4-debian-11"
+        scale: 2
         ports:
             - "9000"
         volumes:
