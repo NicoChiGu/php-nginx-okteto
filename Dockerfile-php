@@ -1,3 +1,5 @@
-FROM bitnami/php-fpm:8.1-debian-11
-#WORKDIR /app
+FROM bitnami/php-fpm:7.4-debian-11
 EXPOSE 9000
+RUN mkdir -p /opt/bitnami/php/etc/conf.d
+ADD /php/custom.ini /opt/bitnami/php/etc/conf.d/custom.ini
+RUN chmod 775 /opt/bitnami/php/etc/conf.d/custom.ini
