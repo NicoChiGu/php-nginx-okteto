@@ -14,7 +14,10 @@ services:
             php:
                 condition: service_healthy
     php:
-        image: "bitnami/php-fpm:7.4-debian-11"
+        #image: "bitnami/php-fpm:7.4-debian-11"
+        build:
+            context: .
+            dockerfile: Dockerfile-php
         scale: 2
         ports:
             - "9000"
