@@ -35,11 +35,23 @@ jobs:
           echo "--------------------------硬盘信息--------------------------"
           echo "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT
  
+      - name: Initialization environment
+        env:
+         DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+          sudo -E apt-get -qq update
+          sudo -E apt-get -qq install wget curl 
+          sudo -E apt-get -qq autoremove --purge
+          sudo -E apt-get -qq clean
+          sudo timedatectl set-timezone "$TZ"
+
+
       - name: Wake On
         run: |
-          wget -o /root/okteto https://github.com/okteto/okteto/releases/download/2.16.3/okteto-Linux-x86_64
-          chmod 775 /root/okteto
-          /root/okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
-          /root/okteto namespace list 
-          /root/okteto namespace sleep ${{ secrets.NAME_SPACE }}
-          /root/okteto namespace sleep ${{ inputs.name_space }}
+          wget -qO ~/okteto https://github.com/okteto/okteto/releases/download/2.16.3/okteto-Linux-x86_64
+          chmod 775 ~/okteto
+          ~/okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
+          ~/okteto namespace list 
+          ~/okteto namespace sleep ${{ secrets.NAME_SPACE }}
+          ~/okteto namespace sleep ${{ inputs.name_space }}
