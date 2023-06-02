@@ -1,3 +1,4 @@
+#!/bin/sh
 cat <<-EOF > ~/.okteto/context/config.json
 {
   "contexts": {
