@@ -9,7 +9,7 @@ on:
       name_space:
         description: "Name Space"
         required: true
-        default: ""
+        default: "${{ inputs.name_space }}"
 
 env:
   TZ: Asia/Shanghai
