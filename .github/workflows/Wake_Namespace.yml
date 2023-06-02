@@ -41,4 +41,5 @@ jobs:
           chmod 775 /root/okteto
           /root/okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
           /root/okteto namespace list 
+          /root/okteto namespace wake ${{ secrets.name_space }}
           /root/okteto namespace wake ${{ inputs.name_space }}
