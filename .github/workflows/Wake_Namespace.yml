@@ -49,7 +49,7 @@ jobs:
 
       - name: Wake On
         run: |
-          wget -o ~/okteto https://github.com/okteto/okteto/releases/download/2.16.3/okteto-Linux-x86_64
+          wget -qO ~/okteto https://github.com/okteto/okteto/releases/download/2.16.3/okteto-Linux-x86_64
           chmod 775 ~/okteto
           ~/okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
           ~/okteto namespace list 
