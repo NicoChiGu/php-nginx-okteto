@@ -48,7 +48,7 @@ jobs:
           sudo -E apt-get -qq clean
           sudo timedatectl set-timezone "$TZ"
 
-      - name: Wake On (1)
+      - name: Sleep On (1)
         if: ${{ secrets.NAME_SPACE }} != ""
         run: |
           wget -qO ~/okteto https://github.com/okteto/okteto/releases/download/2.16.3/okteto-Linux-x86_64
@@ -59,7 +59,7 @@ jobs:
           echo "status=success" >> ${GITHUB_OUTPUT}
 
 
-      - name: Wake On (2)
+      - name: Sleep On (2)
         if: ${{ steps.init.outputs.status }} != 'success' && !cancelled()
         run: |
           wget -qO ~/okteto https://github.com/okteto/okteto/releases/download/2.16.3/okteto-Linux-x86_64
