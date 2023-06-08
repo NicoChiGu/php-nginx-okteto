@@ -15,8 +15,8 @@ If you want your container to run continuously. you need to visit the endpoint u
 | CF_TOKEN | `##longcode` | [Register/Login](https://one.dash.cloudflare.com) CloudflareTunnel |
 | WEB_NGINX_SERVERNAME | `DOMAIN` | Proxy DOMAIN |
 | revoke | revoke | revoke |
-| PHP_VERSION | `8.1-debian-11` | PHP VERSION /See on [DockerHub](https://hub.docker.com/r/bitnami/php-fpm/tags) |
-| DATA_SIZE | `5Gi` | Free User Max 5Gi |
+<!-- | PHP_VERSION | `8.1-debian-11` | PHP VERSION /See on [DockerHub](https://hub.docker.com/r/bitnami/php-fpm/tags) |
+| DATA_SIZE | `5Gi` | Free User Max 5Gi | -->
 
 
 
@@ -46,3 +46,15 @@ If you want your container to run continuously. you need to visit the endpoint u
 > (-c Continuation / -b Background_Execution / --limit-rate=1m Exceeding this limit may cause the service provider to disconnect)
 
 > 5. wait a moment to download / use tar or unzip to decompression.
+
+## How to persistent running namespace
+> 1. You can frok this repo . This includes the operation of **github actions**
+
+> 2. Set env and secrets
+> Setting -> Secrets and variables -> Actions 
+> Add two secrets `NAME_SPACE` and `OKTETO_TOKEN` 
+> `NAME_SPACE` is you okteto namesapce designate. `OKTETO_TOKEN` was in okteto "**SETTINGS**" -> "**Developer Settings**" TOKEN
+
+> 3.adjust schedule in [Sleep_Namespace.yml](.github/workflows/Sleep_Namespace.yml) and [Wake_Namespace.yml](.github/workflows/Wake_Namespace.yml)
+> **UTC TIME**
+
