@@ -10,6 +10,11 @@ on:
         description: "Name Space"
         required: true
         default: ""
+      manual:
+        description: "Name Space"
+        required: true
+        default: "false"
+        type: boolean
 
 env:
   TZ: Asia/Shanghai
@@ -47,6 +52,17 @@ jobs:
           sudo -E apt-get -qq autoremove --purge
           sudo -E apt-get -qq clean
           sudo timedatectl set-timezone "$TZ"
+          
+      - name: Inputs1
+        if: ${{ inputs.manual }} == true
+        run: |
+          echo "inputs_name_space="~/okteto namespace sleep ${{ secrets.name_space }}"" >> "$GITHUB_ENV"
+          
+      - name: Inputs2
+        if: ${{ inputs.manual }} == false
+        run: |
+          echo "secrets_name_space="~/okteto namespace sleep ${{ inputs.name_space }}"" >> "$GITHUB_ENV"
+
 
       - name: Sleep On
         run: |
@@ -54,6 +70,6 @@ jobs:
           chmod 775 ~/okteto
           ~/okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
           ~/okteto namespace list
-          ~/okteto namespace sleep ${{ secrets.name_space }}
-          ~/okteto namespace sleep ${{ inputs.name_space }}
+          ${{ env.inputs_name_space }}
+          ${{ env.secrets_name_space }}
 
