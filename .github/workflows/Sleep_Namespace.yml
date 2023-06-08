@@ -8,7 +8,7 @@ on:
     inputs:
       name_space:
         description: "Name Space"
-        required: true
+        required: false
         default: ""
       manual:
         description: "Name Space"
