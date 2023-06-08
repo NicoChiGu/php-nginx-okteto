@@ -5,11 +5,11 @@ on:
   schedule:
     - cron: 0 21 * * *
   workflow_dispatch:
-    inputs:
-      name_space:
-        description: "Name Space"
-        required: true
-        default: ""
+#     inputs:
+#       name_space:
+#         description: "Name Space"
+#         required: true
+#         default: ""
 
 env:
   TZ: Asia/Shanghai
@@ -37,16 +37,16 @@ jobs:
           echo "--------------------------硬盘信息--------------------------"
           echo "硬盘数量：$(ls /dev/sd* | grep -v [1-9] | wc -l)" && df -hT
 
-      - name: Initialization environment
-        env:
-         DEBIAN_FRONTEND: noninteractive
-        run: |
-          sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-          sudo -E apt-get -qq update
-          sudo -E apt-get -qq install wget curl 
-          sudo -E apt-get -qq autoremove --purge
-          sudo -E apt-get -qq clean
-          sudo timedatectl set-timezone "$TZ"
+#       - name: Initialization environment
+#         env:
+#          DEBIAN_FRONTEND: noninteractive
+#         run: |
+#           sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+#           sudo -E apt-get -qq update
+#           sudo -E apt-get -qq install wget curl 
+#           sudo -E apt-get -qq autoremove --purge
+#           sudo -E apt-get -qq clean
+#           sudo timedatectl set-timezone "$TZ"
 
 
       - name: Wake On
@@ -56,4 +56,3 @@ jobs:
           ~/okteto context use https://cloud.okteto.com --token ${{ secrets.OKTETO_TOKEN }}
           ~/okteto namespace list 
           ~/okteto namespace wake ${{ secrets.NAME_SPACE }}
-          ~/okteto namespace wake ${{ inputs.name_space }}
