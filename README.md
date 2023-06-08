@@ -51,8 +51,11 @@ If you want your container to run continuously. you need to visit the endpoint u
 > 1. You can frok this repo . This includes the operation of **github actions**
 
 > 2. Set env and secrets
+
 > Setting -> Secrets and variables -> Actions 
+
 > Add two secrets `NAME_SPACE` and `OKTETO_TOKEN` 
+
 > `NAME_SPACE` is you okteto namesapce designate. `OKTETO_TOKEN` was in okteto "**SETTINGS**" -> "**Developer Settings**" TOKEN
 
 > 3.adjust schedule in [Sleep_Namespace.yml](.github/workflows/Sleep_Namespace.yml) and [Wake_Namespace.yml](.github/workflows/Wake_Namespace.yml)
