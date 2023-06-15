@@ -19,7 +19,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile-php
-        scale: 4
+        scale: 2
         ports:
             - "9000"
         volumes:
